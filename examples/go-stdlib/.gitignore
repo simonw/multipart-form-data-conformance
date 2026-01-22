@@ -1,0 +1,14 @@
+# Go binaries
+go-stdlib
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary
+*.test
+
+# Coverage
+*.out
+coverage.html
