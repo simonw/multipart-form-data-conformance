@@ -1,0 +1,27 @@
+{
+  "id": "029-filename-path-traversal",
+  "name": "Filename with path traversal",
+  "description": "Filename attempting directory traversal - security test",
+  "spec_references": [
+    "RFC 7578 Section 4.2"
+  ],
+  "category": "filenames",
+  "tags": [
+    "required",
+    "parsing",
+    "security"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "file",
+        "filename": "../../../etc/passwd",
+        "content_type": "text/plain",
+        "body_text": "malicious content",
+        "body_size": 17
+      }
+    ]
+  },
+  "notes": "SECURITY: Parsers should return the raw filename. Applications MUST sanitize before using in filesystem paths."
+}

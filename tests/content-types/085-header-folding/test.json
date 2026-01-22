@@ -1,0 +1,27 @@
+{
+  "id": "085-header-folding",
+  "name": "Header folding (obsolete)",
+  "description": "Header value continues on next line with leading whitespace",
+  "spec_references": [
+    "RFC 7578 Section 4.4"
+  ],
+  "category": "content-types",
+  "tags": [
+    "optional",
+    "parsing",
+    "lenient"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "field",
+        "filename": "very-long-filename-that-continues.txt",
+        "content_type": null,
+        "body_text": "value",
+        "body_size": 5
+      }
+    ]
+  },
+  "notes": "Obsolete per RFC 7230 but may appear in legacy systems"
+}

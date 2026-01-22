@@ -1,0 +1,18 @@
+{
+  "id": "203-missing-content-disposition",
+  "name": "Missing Content-Disposition",
+  "description": "Part lacks required Content-Disposition header",
+  "spec_references": [
+    "RFC 7578 Section 4"
+  ],
+  "category": "malformed",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": false,
+    "error_type": "missing_content_disposition"
+  },
+  "notes": "Content-Disposition: form-data is required for each part"
+}

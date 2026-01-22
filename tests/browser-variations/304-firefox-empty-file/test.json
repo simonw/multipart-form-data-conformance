@@ -1,0 +1,26 @@
+{
+  "id": "304-firefox-empty-file",
+  "name": "Firefox empty file upload",
+  "description": "How Firefox represents file input with no file selected",
+  "spec_references": [
+    "RFC 7578"
+  ],
+  "category": "browser-variations",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "file",
+        "filename": "",
+        "content_type": "application/octet-stream",
+        "body_text": "",
+        "body_size": 0
+      }
+    ]
+  },
+  "notes": "Firefox sends empty filename and application/octet-stream for empty file inputs"
+}

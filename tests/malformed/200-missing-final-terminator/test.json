@@ -1,0 +1,18 @@
+{
+  "id": "200-missing-final-terminator",
+  "name": "Missing final terminator",
+  "description": "Missing -- after final boundary",
+  "spec_references": [
+    "RFC 7578 Section 4"
+  ],
+  "category": "malformed",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": false,
+    "error_type": "missing_terminator"
+  },
+  "notes": "Final boundary must end with -- to indicate end of multipart body"
+}

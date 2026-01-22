@@ -1,0 +1,26 @@
+{
+  "id": "046-whitespace-around-boundary",
+  "name": "Whitespace around boundary",
+  "description": "Extra whitespace around boundary parameter in Content-Type header",
+  "spec_references": [
+    "RFC 2046 Section 5.1.1"
+  ],
+  "category": "boundaries",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "field",
+        "filename": null,
+        "content_type": null,
+        "body_text": "value",
+        "body_size": 5
+      }
+    ]
+  },
+  "notes": "Whitespace around parameter values should be handled gracefully"
+}

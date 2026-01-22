@@ -1,0 +1,24 @@
+{
+  "id": "002-single-file",
+  "name": "Single file upload",
+  "description": "Basic file upload with filename and content type",
+  "spec_references": [
+    "RFC 7578 Section 4.2",
+    "RFC 7578 Section 4.4"
+  ],
+  "category": "basic",
+  "tags": ["required", "parsing"],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "document",
+        "filename": "test.txt",
+        "content_type": "text/plain",
+        "body_text": "Hello, World!",
+        "body_size": 13
+      }
+    ]
+  },
+  "notes": "Basic file upload with explicit Content-Type"
+}

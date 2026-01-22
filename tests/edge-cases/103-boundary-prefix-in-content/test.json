@@ -1,0 +1,26 @@
+{
+  "id": "103-boundary-prefix-in-content",
+  "name": "Boundary prefix in content",
+  "description": "Content starts with dashes similar to boundary prefix",
+  "spec_references": [
+    "RFC 7578 Section 4"
+  ],
+  "category": "edge-cases",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "field",
+        "filename": null,
+        "content_type": null,
+        "body_text": "----This looks like a boundary\n------ButItIsNot\n----TestBoundary12 (not quite)",
+        "body_size": 78
+      }
+    ]
+  },
+  "notes": "Parser must match exact CRLF--boundary sequence"
+}

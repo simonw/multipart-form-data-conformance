@@ -1,0 +1,26 @@
+{
+  "id": "026-filename-with-backslash",
+  "name": "Filename with backslash",
+  "description": "Filename containing backslash character (Windows-style path separator)",
+  "spec_references": [
+    "RFC 7578 Section 4.2"
+  ],
+  "category": "filenames",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "file",
+        "filename": "folder\\file.txt",
+        "content_type": "text/plain",
+        "body_text": "content",
+        "body_size": 7
+      }
+    ]
+  },
+  "notes": "Backslashes may appear in Windows-style paths"
+}

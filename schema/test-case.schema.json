@@ -1,0 +1,203 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/multipart-conformance/schema/test-case.schema.json",
+  "title": "Multipart Form-Data Test Case",
+  "description": "Schema for defining multipart/form-data conformance test cases",
+  "type": "object",
+  "required": ["id", "name", "description", "category", "expected"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[0-9]{3}-[a-z0-9-]+$",
+      "description": "Unique test identifier in format NNN-kebab-case-name"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable test name"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of what this test validates"
+    },
+    "spec_references": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "References to relevant specification sections"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "basic",
+        "filenames",
+        "boundaries",
+        "line-endings",
+        "content-types",
+        "edge-cases",
+        "malformed",
+        "browser-variations"
+      ],
+      "description": "Test category"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["required", "optional", "parsing", "generation", "security", "lenient"]
+      },
+      "description": "Tags for filtering and categorizing tests"
+    },
+    "input": {
+      "type": "object",
+      "properties": {
+        "headers_file": {
+          "type": "string",
+          "default": "headers.json",
+          "description": "Filename for HTTP headers JSON"
+        },
+        "body_file": {
+          "type": "string",
+          "default": "input.raw",
+          "description": "Filename for raw HTTP body"
+        },
+        "body_encoding": {
+          "type": "string",
+          "enum": ["binary", "base64"],
+          "default": "binary",
+          "description": "Encoding of the body file"
+        }
+      },
+      "additionalProperties": false
+    },
+    "expected": {
+      "$ref": "#/$defs/expected_result"
+    },
+    "lenient_expected": {
+      "$ref": "#/$defs/expected_result",
+      "description": "Alternative expected result for lenient parsers"
+    },
+    "parser_options": {
+      "type": "object",
+      "properties": {
+        "strict_line_endings": {
+          "type": "boolean",
+          "default": true,
+          "description": "Require CRLF line endings per spec"
+        },
+        "max_header_size": {
+          "type": "integer",
+          "default": 8192,
+          "description": "Maximum header size in bytes"
+        },
+        "max_parts": {
+          "type": "integer",
+          "description": "Maximum number of parts to parse"
+        },
+        "allow_empty_names": {
+          "type": "boolean",
+          "default": false,
+          "description": "Allow parts without a name parameter"
+        }
+      },
+      "additionalProperties": true
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes about this test case"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "expected_result": {
+      "type": "object",
+      "required": ["valid"],
+      "properties": {
+        "valid": {
+          "type": "boolean",
+          "description": "Whether this input should parse successfully"
+        },
+        "error_type": {
+          "type": "string",
+          "enum": [
+            "boundary_mismatch",
+            "missing_terminator",
+            "invalid_header",
+            "truncated",
+            "missing_content_disposition",
+            "invalid_content_disposition",
+            "missing_name",
+            "duplicate_header",
+            "invalid_boundary",
+            "missing_header_separator"
+          ],
+          "description": "Expected error type for invalid inputs"
+        },
+        "error_message_contains": {
+          "type": "string",
+          "description": "Substring that should appear in error message"
+        },
+        "parts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/part"
+          },
+          "description": "Expected parsed parts"
+        }
+      },
+      "additionalProperties": false
+    },
+    "part": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Field name from Content-Disposition"
+        },
+        "filename": {
+          "type": ["string", "null"],
+          "description": "Filename from Content-Disposition"
+        },
+        "filename_star": {
+          "type": ["string", "null"],
+          "description": "RFC 5987 encoded filename* value (decoded)"
+        },
+        "content_type": {
+          "type": ["string", "null"],
+          "description": "Content-Type of this part"
+        },
+        "charset": {
+          "type": ["string", "null"],
+          "description": "Charset parameter from Content-Type"
+        },
+        "headers": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "All headers for this part"
+        },
+        "body_text": {
+          "type": ["string", "null"],
+          "description": "Expected body as UTF-8 string"
+        },
+        "body_base64": {
+          "type": ["string", "null"],
+          "description": "Expected body as base64 for binary content"
+        },
+        "body_sha256": {
+          "type": ["string", "null"],
+          "description": "SHA-256 hash of body for large files"
+        },
+        "body_size": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Expected body size in bytes"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

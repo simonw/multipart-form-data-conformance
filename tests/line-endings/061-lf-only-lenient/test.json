@@ -1,0 +1,42 @@
+{
+  "id": "061-lf-only-lenient",
+  "name": "LF only line endings (lenient)",
+  "description": "Uses LF line endings instead of CRLF - requires lenient parsing",
+  "spec_references": [
+    "RFC 7578 Section 4"
+  ],
+  "category": "line-endings",
+  "tags": [
+    "optional",
+    "parsing",
+    "lenient"
+  ],
+  "parser_options": {
+    "strict_line_endings": false
+  },
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "field",
+        "filename": null,
+        "content_type": null,
+        "body_text": "value",
+        "body_size": 5
+      }
+    ]
+  },
+  "lenient_expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "field",
+        "filename": null,
+        "content_type": null,
+        "body_text": "value",
+        "body_size": 5
+      }
+    ]
+  },
+  "notes": "Non-compliant but commonly seen. Strict parsers SHOULD reject this. Run with --lenient flag to test lenient parser behavior."
+}

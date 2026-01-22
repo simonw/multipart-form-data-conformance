@@ -1,0 +1,10 @@
+-----------------------------1234567890123456789012345
+Content-Disposition: form-data; name="username"
+
+testuser
+-----------------------------1234567890123456789012345
+Content-Disposition: form-data; name="avatar"; filename="photo.png"
+Content-Type: image/png
+
+PNG data here
+-----------------------------1234567890123456789012345--

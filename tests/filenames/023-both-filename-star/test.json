@@ -1,0 +1,28 @@
+{
+  "id": "023-both-filename-star",
+  "name": "Both filename and filename*",
+  "description": "Contains both filename (ASCII fallback) and filename* (RFC 5987) - filename* takes precedence",
+  "spec_references": [
+    "RFC 5987",
+    "RFC 7578 Section 4.2"
+  ],
+  "category": "filenames",
+  "tags": [
+    "optional",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "file",
+        "filename": "document.pdf",
+        "filename_star": "\u6587\u6863.pdf",
+        "content_type": "application/pdf",
+        "body_text": "PDF content",
+        "body_size": 11
+      }
+    ]
+  },
+  "notes": "When both are present, filename* should be preferred per RFC 5987"
+}

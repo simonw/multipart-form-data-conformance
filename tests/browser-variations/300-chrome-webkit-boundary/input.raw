@@ -1,0 +1,10 @@
+------WebKitFormBoundaryABC123xyz789
+Content-Disposition: form-data; name="username"
+
+testuser
+------WebKitFormBoundaryABC123xyz789
+Content-Disposition: form-data; name="avatar"; filename="photo.png"
+Content-Type: image/png
+
+PNG data here
+------WebKitFormBoundaryABC123xyz789--

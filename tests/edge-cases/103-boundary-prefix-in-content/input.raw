@@ -1,0 +1,7 @@
+------TestBoundary123
+Content-Disposition: form-data; name="field"
+
+----This looks like a boundary
+------ButItIsNot
+----TestBoundary12 (not quite)
+------TestBoundary123--

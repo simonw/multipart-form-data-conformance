@@ -1,0 +1,27 @@
+{
+  "id": "021-unicode-filename-utf8",
+  "name": "Unicode filename (UTF-8)",
+  "description": "Filename with Unicode characters encoded as UTF-8",
+  "spec_references": [
+    "RFC 7578 Section 4.2",
+    "RFC 5987"
+  ],
+  "category": "filenames",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "file",
+        "filename": "\u6587\u6863.pdf",
+        "content_type": "application/pdf",
+        "body_text": "PDF content",
+        "body_size": 11
+      }
+    ]
+  },
+  "notes": "UTF-8 encoded Unicode filename"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "210-control-chars-in-name",
+  "name": "Control characters in name",
+  "description": "Field name contains null byte and other control characters",
+  "spec_references": [
+    "RFC 7578 Section 4"
+  ],
+  "category": "malformed",
+  "tags": [
+    "optional",
+    "parsing",
+    "security"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "field\u0000name",
+        "filename": null,
+        "content_type": null,
+        "body_text": "value",
+        "body_size": 5
+      }
+    ]
+  },
+  "notes": "SECURITY: Control characters in names could be attack vectors. Parsers may accept; applications should validate."
+}

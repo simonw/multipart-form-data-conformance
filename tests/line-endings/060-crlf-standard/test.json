@@ -1,0 +1,26 @@
+{
+  "id": "060-crlf-standard",
+  "name": "CRLF line endings (standard)",
+  "description": "Uses CRLF line endings throughout as required by the spec",
+  "spec_references": [
+    "RFC 7578 Section 4"
+  ],
+  "category": "line-endings",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "field",
+        "filename": null,
+        "content_type": null,
+        "body_text": "value",
+        "body_size": 5
+      }
+    ]
+  },
+  "notes": "Spec-compliant CRLF line endings"
+}

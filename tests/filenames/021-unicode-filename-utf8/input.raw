@@ -1,0 +1,6 @@
+------TestBoundary123
+Content-Disposition: form-data; name="file"; filename="文档.pdf"
+Content-Type: application/pdf
+
+PDF content
+------TestBoundary123--

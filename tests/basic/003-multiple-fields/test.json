@@ -1,0 +1,37 @@
+{
+  "id": "003-multiple-fields",
+  "name": "Multiple text fields",
+  "description": "Multiple text fields in a single multipart request",
+  "spec_references": [
+    "RFC 7578 Section 4.2"
+  ],
+  "category": "basic",
+  "tags": ["required", "parsing"],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "first_name",
+        "filename": null,
+        "content_type": null,
+        "body_text": "John",
+        "body_size": 4
+      },
+      {
+        "name": "last_name",
+        "filename": null,
+        "content_type": null,
+        "body_text": "Doe",
+        "body_size": 3
+      },
+      {
+        "name": "email",
+        "filename": null,
+        "content_type": null,
+        "body_text": "john.doe@example.com",
+        "body_size": 20
+      }
+    ]
+  },
+  "notes": "Tests that parsers correctly handle multiple parts"
+}

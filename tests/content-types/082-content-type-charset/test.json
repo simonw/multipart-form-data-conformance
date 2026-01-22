@@ -1,0 +1,27 @@
+{
+  "id": "082-content-type-charset",
+  "name": "Content-Type with charset",
+  "description": "Content-Type header includes charset parameter",
+  "spec_references": [
+    "RFC 7578 Section 4.4"
+  ],
+  "category": "content-types",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "text",
+        "filename": "unicode.txt",
+        "content_type": "text/plain",
+        "charset": "utf-8",
+        "body_text": "Unicode: caf\u00e9 r\u00e9sum\u00e9",
+        "body_size": 23
+      }
+    ]
+  },
+  "notes": "Charset parameter should be extracted from Content-Type"
+}

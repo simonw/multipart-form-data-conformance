@@ -1,0 +1,6 @@
+------TestBoundary123
+Content-Disposition: form-data; name="file"; filename="file;name.txt"
+Content-Type: text/plain
+
+content
+------TestBoundary123--

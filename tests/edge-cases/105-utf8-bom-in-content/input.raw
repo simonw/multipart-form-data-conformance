@@ -1,0 +1,6 @@
+------TestBoundary123
+Content-Disposition: form-data; name="file"; filename="bom.txt"
+Content-Type: text/plain
+
+﻿Hello World
+------TestBoundary123--

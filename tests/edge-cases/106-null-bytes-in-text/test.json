@@ -1,0 +1,26 @@
+{
+  "id": "106-null-bytes-in-text",
+  "name": "Null bytes in text field",
+  "description": "Text field containing null (0x00) bytes",
+  "spec_references": [
+    "RFC 7578 Section 4"
+  ],
+  "category": "edge-cases",
+  "tags": [
+    "optional",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "field",
+        "filename": null,
+        "content_type": null,
+        "body_base64": "dGV4dAB3aXRoAG51bGxz",
+        "body_size": 15
+      }
+    ]
+  },
+  "notes": "Null bytes in content should be preserved, not treated as terminators"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "101-empty-field-value",
+  "name": "Empty field value",
+  "description": "Text field with empty string value",
+  "spec_references": [
+    "RFC 7578 Section 4"
+  ],
+  "category": "edge-cases",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "empty_field",
+        "filename": null,
+        "content_type": null,
+        "body_text": "",
+        "body_size": 0
+      }
+    ]
+  },
+  "notes": "Empty field values are valid"
+}

@@ -1,0 +1,6 @@
+------TestBoundary123
+Content-Disposition: form-data; name="image"; filename="photo.jpg"
+Content-Type: image/jpeg
+
+binary image data
+------TestBoundary123--

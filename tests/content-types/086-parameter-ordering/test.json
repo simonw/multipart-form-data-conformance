@@ -1,0 +1,26 @@
+{
+  "id": "086-parameter-ordering",
+  "name": "Parameter ordering",
+  "description": "filename parameter appears before name parameter",
+  "spec_references": [
+    "RFC 7578 Section 4.4"
+  ],
+  "category": "content-types",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "file",
+        "filename": "document.txt",
+        "content_type": null,
+        "body_text": "content",
+        "body_size": 7
+      }
+    ]
+  },
+  "notes": "Parameter order should not affect parsing"
+}

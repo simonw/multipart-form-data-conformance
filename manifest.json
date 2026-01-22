@@ -1,0 +1,77 @@
+{
+  "name": "multipart-form-data-conformance",
+  "version": "1.0.0",
+  "description": "Language-independent conformance test suite for multipart/form-data parsing and generation",
+  "spec_references": [
+    {
+      "id": "RFC7578",
+      "title": "Returning Values from Forms: multipart/form-data",
+      "url": "https://tools.ietf.org/html/rfc7578"
+    },
+    {
+      "id": "RFC2046",
+      "title": "MIME Part Two: Media Types",
+      "url": "https://tools.ietf.org/html/rfc2046"
+    },
+    {
+      "id": "RFC5987",
+      "title": "Character Set and Language Encoding for HTTP Header Field Parameters",
+      "url": "https://tools.ietf.org/html/rfc5987"
+    },
+    {
+      "id": "HTML",
+      "title": "HTML Living Standard - multipart/form-data encoding",
+      "url": "https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#multipart-form-data"
+    }
+  ],
+  "categories": [
+    {
+      "id": "basic",
+      "name": "Basic",
+      "id_range": [1, 19],
+      "description": "Essential parsing tests for minimal conformance"
+    },
+    {
+      "id": "filenames",
+      "name": "Filenames",
+      "id_range": [20, 39],
+      "description": "Filename parameter handling and encoding"
+    },
+    {
+      "id": "boundaries",
+      "name": "Boundaries",
+      "id_range": [40, 59],
+      "description": "Boundary detection and edge cases"
+    },
+    {
+      "id": "line-endings",
+      "name": "Line Endings",
+      "id_range": [60, 79],
+      "description": "CRLF and LF handling"
+    },
+    {
+      "id": "content-types",
+      "name": "Content Types",
+      "id_range": [80, 99],
+      "description": "Content-Type and header parsing"
+    },
+    {
+      "id": "edge-cases",
+      "name": "Edge Cases",
+      "id_range": [100, 199],
+      "description": "Unusual but valid scenarios"
+    },
+    {
+      "id": "malformed",
+      "name": "Malformed",
+      "id_range": [200, 299],
+      "description": "Invalid input and error handling"
+    },
+    {
+      "id": "browser-variations",
+      "name": "Browser Variations",
+      "id_range": [300, 399],
+      "description": "Real browser output patterns"
+    }
+  ]
+}
