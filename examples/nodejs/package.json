@@ -1,0 +1,21 @@
+{
+  "name": "nodejs-multipart-conformance",
+  "version": "0.1.0",
+  "description": "Node.js conformance tests for multipart/form-data with multiple parsers",
+  "type": "module",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "node --test tests/test_conformance.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "busboy": "^1.6.0",
+    "express": "^4.21.0",
+    "formidable": "^3.5.0",
+    "multer": "^2.0.0"
+  },
+  "devDependencies": {}
+}
