@@ -216,8 +216,50 @@ for test_dir in glob("tests/*/*/"):
 server.stop()
 ```
 
+## Writing a Conformance Report
+
+Each implementation should include a `REPORT.md` documenting test results. This helps users understand what works, what doesn't, and why. See `starlette/REPORT.md` for an example.
+
+Your report should include:
+
+### Summary Table
+
+```markdown
+| Result | Count | Percentage |
+|--------|-------|------------|
+| Passed | 46 | 79% |
+| Skipped | 9 | 16% |
+| Failed | 3 | 5% |
+| **Total** | **58** | 100% |
+```
+
+### Passed Tests
+
+List categories and counts showing what works correctly.
+
+### Skipped Tests (Optional Features)
+
+For each skipped test, explain:
+- Test ID and feature name
+- Why it was skipped (optional feature, parser limitation, etc.)
+
+### Failed Tests (Conformance Issues)
+
+For each failure, document:
+- **Test ID** and what it tests
+- **Expected behavior** - What the spec/test requires
+- **Actual behavior** - What your implementation does
+- **Impact** - Is this a critical failure or minor metadata issue?
+- **Root cause** - If known, what causes this behavior
+- **Workaround** - If available, how users can work around the issue
+
+### Recommendations
+
+Suggest improvements or bug reports that could improve conformance.
+
 ## See Also
 
 - `starlette/` - Python/Starlette reference implementation
+- `starlette/REPORT.md` - Example conformance report
 - `../schema/` - JSON schemas for test file validation
 - `../tests/` - The actual test cases
