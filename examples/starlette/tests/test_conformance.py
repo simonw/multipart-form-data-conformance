@@ -184,6 +184,12 @@ def compare_part(actual: dict, expected: dict, test_id: str):
     return mismatches
 
 
+def is_optional_test(test_json: dict) -> bool:
+    """Check if a test is optional based on its tags."""
+    tags = test_json.get("tags", [])
+    return "optional" in tags
+
+
 @pytest.mark.parametrize("test_id,test_dir", TEST_CASES, ids=[tc[0] for tc in TEST_CASES])
 def test_multipart_parsing(server_url: str, test_id: str, test_dir: Path):
     """
@@ -191,6 +197,7 @@ def test_multipart_parsing(server_url: str, test_id: str, test_dir: Path):
     """
     test_json, headers_json, input_raw = load_test_case(test_dir)
     expected = test_json["expected"]
+    optional = is_optional_test(test_json)
 
     # Build headers for the request
     headers = {}
@@ -198,29 +205,48 @@ def test_multipart_parsing(server_url: str, test_id: str, test_dir: Path):
         headers[key] = value
 
     # Send the raw multipart body to the server
-    response = httpx.post(
-        f"{server_url}/parse",
-        content=input_raw,
-        headers=headers,
-        timeout=10.0,
-    )
-
-    result = response.json()
+    try:
+        response = httpx.post(
+            f"{server_url}/parse",
+            content=input_raw,
+            headers=headers,
+            timeout=10.0,
+        )
+        result = response.json()
+    except Exception as e:
+        # HTTP client may reject certain headers (e.g., unusual whitespace)
+        if optional:
+            pytest.skip(f"HTTP client rejected request for optional test {test_id}: {e}")
+        else:
+            raise AssertionError(f"HTTP client error for {test_id}: {e}") from e
 
     # Check validity
     if expected.get("valid", True):
         # Test expects successful parsing
-        assert result.get("valid") is True, (
-            f"Expected valid parsing for {test_id}, but got: {result}"
-        )
+        if result.get("valid") is not True:
+            if optional:
+                pytest.skip(
+                    f"Optional test {test_id} failed: Starlette could not parse input"
+                )
+            else:
+                raise AssertionError(
+                    f"Expected valid parsing for {test_id}, but got: {result}"
+                )
 
         expected_parts = expected.get("parts", [])
         actual_parts = result.get("parts", [])
 
-        assert len(actual_parts) == len(expected_parts), (
-            f"Part count mismatch for {test_id}: "
-            f"got {len(actual_parts)}, expected {len(expected_parts)}"
-        )
+        if len(actual_parts) != len(expected_parts):
+            if optional:
+                pytest.skip(
+                    f"Optional test {test_id}: part count mismatch "
+                    f"(got {len(actual_parts)}, expected {len(expected_parts)})"
+                )
+            else:
+                raise AssertionError(
+                    f"Part count mismatch for {test_id}: "
+                    f"got {len(actual_parts)}, expected {len(expected_parts)}"
+                )
 
         all_mismatches = []
         for i, (actual_part, expected_part) in enumerate(zip(actual_parts, expected_parts)):
@@ -228,9 +254,15 @@ def test_multipart_parsing(server_url: str, test_id: str, test_dir: Path):
             if mismatches:
                 all_mismatches.append(f"Part {i}: {'; '.join(mismatches)}")
 
-        assert not all_mismatches, (
-            f"Part comparison failed for {test_id}:\n" + "\n".join(all_mismatches)
-        )
+        if all_mismatches:
+            if optional:
+                pytest.skip(
+                    f"Optional test {test_id} failed:\n" + "\n".join(all_mismatches)
+                )
+            else:
+                raise AssertionError(
+                    f"Part comparison failed for {test_id}:\n" + "\n".join(all_mismatches)
+                )
     else:
         # Test expects parsing to fail
         # Note: Starlette may still parse some "malformed" inputs successfully

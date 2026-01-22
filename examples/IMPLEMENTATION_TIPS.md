@@ -107,11 +107,63 @@ Some tests use `body_base64` instead of `body_text` for binary content. Your ser
 
 ### Optional Tests
 
-Check `test.json` for:
-- `tags` array - Tests tagged `"optional"` test non-required features
-- `parser_options` object - Tests may require specific parser configurations (e.g., `strict_line_endings: false`)
+Tests are classified as **required** or **optional** via the `tags` array in `test.json`:
 
-Consider skipping optional tests or marking them as expected failures if your parser doesn't support the feature.
+```json
+{
+  "tags": ["required", "parsing"]   // Must pass for conformance
+}
+```
+
+```json
+{
+  "tags": ["optional", "parsing"]   // Nice to have, not required
+}
+```
+
+**Optional tests include:**
+
+| Feature | Tags | Description |
+|---------|------|-------------|
+| RFC 5987 filename* | `optional` | Extended parameter encoding for non-ASCII filenames |
+| Lenient line endings | `optional`, `lenient` | LF-only instead of CRLF |
+| Header folding | `optional`, `lenient` | Obsolete HTTP/1.x header continuation |
+| Separate charset field | `optional` | Extracting charset from Content-Type |
+| Preamble handling | `optional` | Ignoring content before first boundary |
+| Whitespace in headers | `optional` | Extra whitespace around parameter values |
+
+**Handling optional tests in your runner:**
+
+```python
+# Check if test is optional
+tags = test_json.get("tags", [])
+is_optional = "optional" in tags
+
+# If test fails but is optional, skip instead of fail
+if test_failed and is_optional:
+    skip(f"Optional feature not supported: {test_id}")
+```
+
+### Parser Options
+
+Some tests specify `parser_options` indicating they require specific parser configurations:
+
+```json
+{
+  "parser_options": {
+    "strict_line_endings": false
+  }
+}
+```
+
+If your parser doesn't support the required option, skip the test:
+
+```python
+parser_options = test_json.get("parser_options", {})
+if parser_options.get("strict_line_endings") == False:
+    if not parser_supports_lenient_line_endings:
+        skip("Parser requires CRLF line endings")
+```
 
 ### Empty vs Null Filenames
 
