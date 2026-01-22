@@ -1,5 +1,9 @@
 # Multipart Form-Data Conformance Test Suite
 
+> **⚠️ EARLY ALPHA - DO NOT USE**
+>
+> This test suite is in very early development and has not been verified against real-world implementations. The test cases, expected results, and tooling may contain errors. Do not rely on this for validating parser conformance until it has been thoroughly reviewed and tested.
+
 A language-independent test suite for validating HTTP `multipart/form-data` parsers and generators.
 
 ## Goals
