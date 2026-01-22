@@ -7,7 +7,7 @@
   ],
   "category": "boundaries",
   "tags": [
-    "required",
+    "optional",
     "parsing"
   ],
   "expected": {
@@ -22,5 +22,5 @@
       }
     ]
   },
-  "notes": "Whitespace around parameter values should be handled gracefully"
+  "notes": "Whitespace around parameter values should be handled gracefully. Note: Some HTTP client libraries reject headers with unquoted values containing spaces, making this test difficult to run in practice."
 }

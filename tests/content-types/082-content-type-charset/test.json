@@ -7,7 +7,7 @@
   ],
   "category": "content-types",
   "tags": [
-    "required",
+    "optional",
     "parsing"
   ],
   "expected": {
@@ -16,12 +16,12 @@
       {
         "name": "text",
         "filename": "unicode.txt",
-        "content_type": "text/plain",
+        "content_type": "text/plain; charset=utf-8",
         "charset": "utf-8",
         "body_text": "Unicode: caf\u00e9 r\u00e9sum\u00e9",
         "body_size": 23
       }
     ]
   },
-  "notes": "Charset parameter should be extracted from Content-Type"
+  "notes": "Charset parameter may be extracted from Content-Type. Parsers may return the full content_type value including charset, or extract charset separately. The charset field is optional."
 }

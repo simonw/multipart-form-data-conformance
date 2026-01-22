@@ -1,11 +1,11 @@
 {
-  "id": "206-preamble-content",
+  "id": "107-preamble-content",
   "name": "Preamble before first boundary",
   "description": "Content appears before the first boundary (preamble)",
   "spec_references": [
     "RFC 2046 Section 5.1.1"
   ],
-  "category": "malformed",
+  "category": "edge-cases",
   "tags": [
     "optional",
     "parsing"
