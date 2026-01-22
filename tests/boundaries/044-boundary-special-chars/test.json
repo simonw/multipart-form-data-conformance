@@ -1,0 +1,26 @@
+{
+  "id": "044-boundary-special-chars",
+  "name": "Boundary with special characters",
+  "description": "Boundary using special characters allowed by RFC 2046",
+  "spec_references": [
+    "RFC 2046 Section 5.1.1"
+  ],
+  "category": "boundaries",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "field",
+        "filename": null,
+        "content_type": null,
+        "body_text": "value",
+        "body_size": 5
+      }
+    ]
+  },
+  "notes": "RFC 2046 allows: DIGIT / ALPHA / ' ( ) + _ , - . / : = ?"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "064-crlf-in-value",
+  "name": "CRLF preserved in field value",
+  "description": "Multi-line text field with CRLF inside the content",
+  "spec_references": [
+    "RFC 7578 Section 4"
+  ],
+  "category": "line-endings",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "message",
+        "filename": null,
+        "content_type": null,
+        "body_text": "Line 1\r\nLine 2\r\nLine 3",
+        "body_size": 22
+      }
+    ]
+  },
+  "notes": "CRLF within content must be preserved, not interpreted as boundary"
+}

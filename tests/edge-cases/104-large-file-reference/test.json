@@ -1,0 +1,26 @@
+{
+  "id": "104-large-file-reference",
+  "name": "Large file with SHA-256 verification",
+  "description": "Larger file where body is verified by hash instead of inline content",
+  "spec_references": [
+    "RFC 7578 Section 4"
+  ],
+  "category": "edge-cases",
+  "tags": [
+    "optional",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "largefile",
+        "filename": "large.bin",
+        "content_type": "application/octet-stream",
+        "body_sha256": "85757d9ef5868bb53472a6be8d81d1e3c398546b69b107141ad336053c40cb54",
+        "body_size": 10000
+      }
+    ]
+  },
+  "notes": "For large files, use SHA-256 hash comparison instead of inline content"
+}

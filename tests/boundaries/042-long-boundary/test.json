@@ -1,0 +1,26 @@
+{
+  "id": "042-long-boundary",
+  "name": "Maximum length boundary",
+  "description": "Boundary at the maximum allowed length of 70 characters",
+  "spec_references": [
+    "RFC 2046 Section 5.1.1"
+  ],
+  "category": "boundaries",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "field",
+        "filename": null,
+        "content_type": null,
+        "body_text": "value",
+        "body_size": 5
+      }
+    ]
+  },
+  "notes": "RFC 2046 allows boundaries up to 70 characters"
+}

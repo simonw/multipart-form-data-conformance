@@ -1,0 +1,26 @@
+{
+  "id": "025-filename-with-quotes",
+  "name": "Filename with quotes",
+  "description": "Filename containing escaped quote characters",
+  "spec_references": [
+    "RFC 7578 Section 4.2"
+  ],
+  "category": "filenames",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "file",
+        "filename": "file\"name.txt",
+        "content_type": "text/plain",
+        "body_text": "content",
+        "body_size": 7
+      }
+    ]
+  },
+  "notes": "Quotes in filenames must be escaped with backslash"
+}

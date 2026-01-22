@@ -1,0 +1,23 @@
+{
+  "id": "001-single-text-field",
+  "name": "Single text field",
+  "description": "Basic test with one text form field - the minimal valid multipart request",
+  "spec_references": [
+    "RFC 7578 Section 4.2"
+  ],
+  "category": "basic",
+  "tags": ["required", "parsing"],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "username",
+        "filename": null,
+        "content_type": null,
+        "body_text": "john_doe",
+        "body_size": 8
+      }
+    ]
+  },
+  "notes": "Most basic possible multipart request with a single text field"
+}

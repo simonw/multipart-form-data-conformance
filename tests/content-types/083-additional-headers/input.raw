@@ -1,0 +1,7 @@
+------TestBoundary123
+Content-Disposition: form-data; name="file"; filename="data.bin"
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: binary
+
+binary
+------TestBoundary123--

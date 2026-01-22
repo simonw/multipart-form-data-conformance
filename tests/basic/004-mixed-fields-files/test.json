@@ -1,0 +1,38 @@
+{
+  "id": "004-mixed-fields-files",
+  "name": "Mixed fields and files",
+  "description": "Combination of text fields and file uploads in one request",
+  "spec_references": [
+    "RFC 7578 Section 4.2",
+    "RFC 7578 Section 4.4"
+  ],
+  "category": "basic",
+  "tags": ["required", "parsing"],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "title",
+        "filename": null,
+        "content_type": null,
+        "body_text": "My Document",
+        "body_size": 11
+      },
+      {
+        "name": "file",
+        "filename": "document.txt",
+        "content_type": "text/plain",
+        "body_text": "Document content here",
+        "body_size": 21
+      },
+      {
+        "name": "description",
+        "filename": null,
+        "content_type": null,
+        "body_text": "A sample document",
+        "body_size": 17
+      }
+    ]
+  },
+  "notes": "Common pattern of form data mixed with file upload"
+}

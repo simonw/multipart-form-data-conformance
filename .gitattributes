@@ -1,0 +1,8 @@
+# Treat .raw files as binary to preserve exact bytes
+*.raw binary
+
+# Ensure consistent line endings for text files
+*.json text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+*.schema.json text eol=lf

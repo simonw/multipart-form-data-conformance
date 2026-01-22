@@ -1,0 +1,26 @@
+{
+  "id": "208-duplicate-headers",
+  "name": "Duplicate headers",
+  "description": "Part has two Content-Disposition headers",
+  "spec_references": [
+    "RFC 7578 Section 4"
+  ],
+  "category": "malformed",
+  "tags": [
+    "optional",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "field2",
+        "filename": null,
+        "content_type": null,
+        "body_text": "value",
+        "body_size": 5
+      }
+    ]
+  },
+  "notes": "Duplicate headers: some parsers reject, others use last value. This reference parser uses the last value. Implementations that reject duplicates are also correct."
+}

@@ -1,0 +1,42 @@
+{
+  "id": "062-mixed-endings",
+  "name": "Mixed line endings",
+  "description": "CRLF in headers, LF as body separator - tests parser robustness",
+  "spec_references": [
+    "RFC 7578 Section 4"
+  ],
+  "category": "line-endings",
+  "tags": [
+    "optional",
+    "parsing",
+    "lenient"
+  ],
+  "parser_options": {
+    "strict_line_endings": false
+  },
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "field",
+        "filename": null,
+        "content_type": null,
+        "body_text": "value",
+        "body_size": 5
+      }
+    ]
+  },
+  "lenient_expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "field",
+        "filename": null,
+        "content_type": null,
+        "body_text": "value",
+        "body_size": 5
+      }
+    ]
+  },
+  "notes": "Mixed line endings may occur in real-world data. Strict parsers SHOULD reject. Run with --lenient flag to test lenient parser behavior."
+}

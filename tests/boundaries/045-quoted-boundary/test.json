@@ -1,0 +1,26 @@
+{
+  "id": "045-quoted-boundary",
+  "name": "Quoted boundary in header",
+  "description": "Boundary value is quoted in Content-Type header",
+  "spec_references": [
+    "RFC 2046 Section 5.1.1"
+  ],
+  "category": "boundaries",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "field",
+        "filename": null,
+        "content_type": null,
+        "body_text": "value",
+        "body_size": 5
+      }
+    ]
+  },
+  "notes": "Boundary can be quoted to include spaces"
+}

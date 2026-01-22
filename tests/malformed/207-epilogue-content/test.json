@@ -1,0 +1,26 @@
+{
+  "id": "207-epilogue-content",
+  "name": "Epilogue after final boundary",
+  "description": "Content appears after the final boundary (epilogue)",
+  "spec_references": [
+    "RFC 2046 Section 5.1.1"
+  ],
+  "category": "malformed",
+  "tags": [
+    "optional",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "field",
+        "filename": null,
+        "content_type": null,
+        "body_text": "value",
+        "body_size": 5
+      }
+    ]
+  },
+  "notes": "RFC 2046: Content after final boundary is epilogue and should be ignored"
+}

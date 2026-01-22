@@ -1,0 +1,26 @@
+{
+  "id": "020-ascii-filename",
+  "name": "ASCII filename",
+  "description": "Simple ASCII filename without special characters",
+  "spec_references": [
+    "RFC 7578 Section 4.2"
+  ],
+  "category": "filenames",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "file",
+        "filename": "document.pdf",
+        "content_type": "application/pdf",
+        "body_text": "PDF content",
+        "body_size": 11
+      }
+    ]
+  },
+  "notes": "Basic ASCII filename case"
+}

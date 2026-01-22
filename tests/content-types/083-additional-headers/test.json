@@ -1,0 +1,31 @@
+{
+  "id": "083-additional-headers",
+  "name": "Additional headers",
+  "description": "Part includes extra headers beyond Content-Disposition and Content-Type",
+  "spec_references": [
+    "RFC 7578 Section 4.7"
+  ],
+  "category": "content-types",
+  "tags": [
+    "optional",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "file",
+        "filename": "data.bin",
+        "content_type": "application/octet-stream",
+        "body_text": "binary",
+        "body_size": 6,
+        "headers": {
+          "content-disposition": "form-data; name=\"file\"; filename=\"data.bin\"",
+          "content-type": "application/octet-stream",
+          "content-transfer-encoding": "binary"
+        }
+      }
+    ]
+  },
+  "notes": "Additional headers like Content-Transfer-Encoding should be preserved"
+}

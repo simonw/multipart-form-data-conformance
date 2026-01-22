@@ -1,0 +1,26 @@
+{
+  "id": "041-boundary-with-hyphens",
+  "name": "Boundary with hyphens (browser style)",
+  "description": "Boundary string with leading hyphens as used by WebKit browsers",
+  "spec_references": [
+    "RFC 2046 Section 5.1.1"
+  ],
+  "category": "boundaries",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "field",
+        "filename": null,
+        "content_type": null,
+        "body_text": "value",
+        "body_size": 5
+      }
+    ]
+  },
+  "notes": "Common browser boundary format"
+}

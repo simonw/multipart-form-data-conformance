@@ -1,0 +1,6 @@
+------TestBoundary123
+Content-Disposition: form-data; name="file"; filename="../../../etc/passwd"
+Content-Type: text/plain
+
+malicious content
+------TestBoundary123--

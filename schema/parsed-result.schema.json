@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/multipart-conformance/schema/parsed-result.schema.json",
+  "title": "Multipart Form-Data Parsed Result",
+  "description": "Schema for the expected result of parsing multipart/form-data",
+  "type": "object",
+  "required": ["valid"],
+  "properties": {
+    "valid": {
+      "type": "boolean",
+      "description": "Whether the input was successfully parsed"
+    },
+    "error_type": {
+      "type": "string",
+      "enum": [
+        "boundary_mismatch",
+        "missing_terminator",
+        "invalid_header",
+        "truncated",
+        "missing_content_disposition",
+        "invalid_content_disposition",
+        "missing_name",
+        "duplicate_header",
+        "invalid_boundary",
+        "missing_header_separator"
+      ],
+      "description": "Type of error encountered for invalid inputs"
+    },
+    "error_message": {
+      "type": "string",
+      "description": "Human-readable error message"
+    },
+    "parts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/part"
+      },
+      "description": "Parsed parts from the multipart message"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "part": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Field name extracted from Content-Disposition name parameter"
+        },
+        "filename": {
+          "type": ["string", "null"],
+          "description": "Filename from Content-Disposition filename parameter"
+        },
+        "filename_star": {
+          "type": ["string", "null"],
+          "description": "Decoded value from RFC 5987 filename* parameter"
+        },
+        "content_type": {
+          "type": ["string", "null"],
+          "description": "Content-Type header value for this part (null if not specified)"
+        },
+        "charset": {
+          "type": ["string", "null"],
+          "description": "Charset parameter extracted from Content-Type"
+        },
+        "headers": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "All headers for this part as key-value pairs (lowercase keys)"
+        },
+        "body_text": {
+          "type": ["string", "null"],
+          "description": "Body content decoded as UTF-8 string"
+        },
+        "body_base64": {
+          "type": ["string", "null"],
+          "description": "Body content encoded as base64 (for binary data)"
+        },
+        "body_sha256": {
+          "type": ["string", "null"],
+          "description": "SHA-256 hash of the body (lowercase hex)"
+        },
+        "body_size": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Size of the body in bytes"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

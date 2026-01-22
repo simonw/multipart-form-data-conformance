@@ -1,0 +1,26 @@
+{
+  "id": "209-boundary-no-leading-crlf",
+  "name": "Boundary without leading CRLF",
+  "description": "Second boundary not preceded by CRLF",
+  "spec_references": [
+    "RFC 7578 Section 4"
+  ],
+  "category": "malformed",
+  "tags": [
+    "optional",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "field1",
+        "filename": null,
+        "content_type": null,
+        "body_text": "value1------TestBoundary123\r\nContent-Disposition: form-data; name=\"field2\"\r\n\r\nvalue2",
+        "body_size": 84
+      }
+    ]
+  },
+  "notes": "Without CRLF before boundary, the boundary string becomes part of content. Some parsers may error; this reference parser treats it as content."
+}

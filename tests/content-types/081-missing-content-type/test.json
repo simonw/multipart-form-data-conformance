@@ -1,0 +1,26 @@
+{
+  "id": "081-missing-content-type",
+  "name": "Missing Content-Type",
+  "description": "File part without Content-Type header - should default to text/plain per RFC 7578",
+  "spec_references": [
+    "RFC 7578 Section 4.4"
+  ],
+  "category": "content-types",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "file",
+        "filename": "data.txt",
+        "content_type": null,
+        "body_text": "text content",
+        "body_size": 12
+      }
+    ]
+  },
+  "notes": "RFC 7578 Section 4.4: default is text/plain for files without Content-Type"
+}

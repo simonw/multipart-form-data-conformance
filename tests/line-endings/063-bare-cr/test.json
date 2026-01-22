@@ -1,0 +1,26 @@
+{
+  "id": "063-bare-cr",
+  "name": "Bare CR handling",
+  "description": "Contains bare CR characters which should be preserved in content",
+  "spec_references": [
+    "RFC 7578 Section 4"
+  ],
+  "category": "line-endings",
+  "tags": [
+    "optional",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "field",
+        "filename": null,
+        "content_type": null,
+        "body_text": "line1\rline2",
+        "body_size": 11
+      }
+    ]
+  },
+  "notes": "Tests that bare CR in content is preserved, not treated as line ending"
+}

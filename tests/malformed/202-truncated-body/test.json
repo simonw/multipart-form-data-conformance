@@ -1,0 +1,18 @@
+{
+  "id": "202-truncated-body",
+  "name": "Truncated body",
+  "description": "Body is truncated mid-part",
+  "spec_references": [
+    "RFC 7578 Section 4"
+  ],
+  "category": "malformed",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": false,
+    "error_type": "truncated"
+  },
+  "notes": "Parser should detect incomplete multipart body"
+}

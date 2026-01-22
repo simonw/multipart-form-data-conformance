@@ -1,0 +1,28 @@
+{
+  "id": "022-filename-star-encoding",
+  "name": "RFC 5987 filename* encoding",
+  "description": "Uses filename* parameter with percent-encoding for international characters",
+  "spec_references": [
+    "RFC 5987",
+    "RFC 7578 Section 4.2"
+  ],
+  "category": "filenames",
+  "tags": [
+    "optional",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "file",
+        "filename": null,
+        "filename_star": "\u6587\u6863.pdf",
+        "content_type": "application/pdf",
+        "body_text": "PDF content",
+        "body_size": 11
+      }
+    ]
+  },
+  "notes": "RFC 5987 extended parameter for non-ASCII filenames"
+}

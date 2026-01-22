@@ -1,0 +1,18 @@
+{
+  "id": "201-wrong-boundary",
+  "name": "Wrong boundary in body",
+  "description": "Boundary in body does not match Content-Type header",
+  "spec_references": [
+    "RFC 7578 Section 4"
+  ],
+  "category": "malformed",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": false,
+    "error_type": "boundary_mismatch"
+  },
+  "notes": "Boundary in body must exactly match the one declared in Content-Type"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "205-no-blank-line",
+  "name": "No blank line after headers",
+  "description": "Missing blank line separating headers from body",
+  "spec_references": [
+    "RFC 7578 Section 4"
+  ],
+  "category": "malformed",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": false,
+    "error_type": "invalid_header"
+  },
+  "notes": "Headers and body must be separated by blank line (CRLFCRLF). Parsers may report this as invalid_header or missing_header_separator."
+}

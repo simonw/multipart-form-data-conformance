@@ -1,0 +1,37 @@
+{
+  "id": "005-multiple-files-same-name",
+  "name": "Multiple files with same name",
+  "description": "Multiple file uploads using array-style input (files[])",
+  "spec_references": [
+    "RFC 7578 Section 4.3"
+  ],
+  "category": "basic",
+  "tags": ["required", "parsing"],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "files[]",
+        "filename": "file1.txt",
+        "content_type": "text/plain",
+        "body_text": "Content of file 1",
+        "body_size": 17
+      },
+      {
+        "name": "files[]",
+        "filename": "file2.txt",
+        "content_type": "text/plain",
+        "body_text": "Content of file 2",
+        "body_size": 17
+      },
+      {
+        "name": "files[]",
+        "filename": "file3.txt",
+        "content_type": "text/plain",
+        "body_text": "Content of file 3",
+        "body_size": 17
+      }
+    ]
+  },
+  "notes": "Tests handling of multiple files with the same field name (array-style upload)"
+}

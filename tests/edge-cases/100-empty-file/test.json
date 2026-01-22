@@ -1,0 +1,26 @@
+{
+  "id": "100-empty-file",
+  "name": "Empty file (0 bytes)",
+  "description": "File upload with zero bytes of content",
+  "spec_references": [
+    "RFC 7578 Section 4"
+  ],
+  "category": "edge-cases",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "file",
+        "filename": "empty.txt",
+        "content_type": "text/plain",
+        "body_text": "",
+        "body_size": 0
+      }
+    ]
+  },
+  "notes": "Empty files are valid uploads"
+}

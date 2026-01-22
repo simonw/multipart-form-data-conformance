@@ -1,0 +1,26 @@
+{
+  "id": "028-empty-filename",
+  "name": "Empty filename",
+  "description": "File upload with empty filename (browser sends this for file inputs with no selection)",
+  "spec_references": [
+    "RFC 7578 Section 4.2"
+  ],
+  "category": "filenames",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "file",
+        "filename": "",
+        "content_type": "application/octet-stream",
+        "body_text": "",
+        "body_size": 0
+      }
+    ]
+  },
+  "notes": "Browsers send empty filename when no file is selected"
+}

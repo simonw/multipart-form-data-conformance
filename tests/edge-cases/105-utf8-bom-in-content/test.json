@@ -1,0 +1,26 @@
+{
+  "id": "105-utf8-bom-in-content",
+  "name": "UTF-8 BOM in content",
+  "description": "Content starts with UTF-8 Byte Order Mark",
+  "spec_references": [
+    "RFC 7578 Section 4"
+  ],
+  "category": "edge-cases",
+  "tags": [
+    "optional",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "file",
+        "filename": "bom.txt",
+        "content_type": "text/plain",
+        "body_base64": "77u/SGVsbG8gV29ybGQ=",
+        "body_size": 14
+      }
+    ]
+  },
+  "notes": "BOM should be preserved as part of content, not stripped"
+}

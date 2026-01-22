@@ -1,0 +1,26 @@
+{
+  "id": "043-boundary-in-content",
+  "name": "Boundary-like string in content",
+  "description": "Content contains text similar to boundary but not matching exactly",
+  "spec_references": [
+    "RFC 2046 Section 5.1.1"
+  ],
+  "category": "boundaries",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "field",
+        "filename": null,
+        "content_type": null,
+        "body_text": "The text ------TestBoundary is similar to boundary\nbut ----TestBoundaryX is not a match",
+        "body_size": 87
+      }
+    ]
+  },
+  "notes": "Parser must only match exact boundary (CRLF--boundary), not similar strings"
+}

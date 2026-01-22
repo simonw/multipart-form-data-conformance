@@ -1,0 +1,33 @@
+{
+  "id": "302-safari-boundary",
+  "name": "Safari boundary",
+  "description": "Boundary format used by Safari browsers",
+  "spec_references": [
+    "RFC 7578"
+  ],
+  "category": "browser-variations",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "username",
+        "filename": null,
+        "content_type": null,
+        "body_text": "testuser",
+        "body_size": 8
+      },
+      {
+        "name": "avatar",
+        "filename": "photo.png",
+        "content_type": "image/png",
+        "body_text": "PNG data here",
+        "body_size": 13
+      }
+    ]
+  },
+  "notes": "Safari uses WebKit-style boundary similar to Chrome"
+}

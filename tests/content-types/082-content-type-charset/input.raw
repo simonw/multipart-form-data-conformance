@@ -1,0 +1,6 @@
+------TestBoundary123
+Content-Disposition: form-data; name="text"; filename="unicode.txt"
+Content-Type: text/plain; charset=utf-8
+
+Unicode: café résumé
+------TestBoundary123--

@@ -1,0 +1,14 @@
+------TestBoundary123
+Content-Disposition: form-data; name="title"
+
+My Document
+------TestBoundary123
+Content-Disposition: form-data; name="file"; filename="document.txt"
+Content-Type: text/plain
+
+Document content here
+------TestBoundary123
+Content-Disposition: form-data; name="description"
+
+A sample document
+------TestBoundary123--

@@ -1,0 +1,26 @@
+{
+  "id": "080-explicit-content-type",
+  "name": "Explicit Content-Type",
+  "description": "File part with explicitly specified Content-Type header",
+  "spec_references": [
+    "RFC 7578 Section 4.4"
+  ],
+  "category": "content-types",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "image",
+        "filename": "photo.jpg",
+        "content_type": "image/jpeg",
+        "body_text": "binary image data",
+        "body_size": 17
+      }
+    ]
+  },
+  "notes": "Content-Type should be parsed from part header"
+}

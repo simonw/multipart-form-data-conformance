@@ -1,0 +1,16 @@
+------TestBoundary123
+Content-Disposition: form-data; name="files[]"; filename="file1.txt"
+Content-Type: text/plain
+
+Content of file 1
+------TestBoundary123
+Content-Disposition: form-data; name="files[]"; filename="file2.txt"
+Content-Type: text/plain
+
+Content of file 2
+------TestBoundary123
+Content-Disposition: form-data; name="files[]"; filename="file3.txt"
+Content-Type: text/plain
+
+Content of file 3
+------TestBoundary123--

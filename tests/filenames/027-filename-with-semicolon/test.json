@@ -1,0 +1,26 @@
+{
+  "id": "027-filename-with-semicolon",
+  "name": "Filename with semicolon",
+  "description": "Filename containing semicolon character (parameter delimiter)",
+  "spec_references": [
+    "RFC 7578 Section 4.2"
+  ],
+  "category": "filenames",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "file",
+        "filename": "file;name.txt",
+        "content_type": "text/plain",
+        "body_text": "content",
+        "body_size": 7
+      }
+    ]
+  },
+  "notes": "Semicolons in quoted filenames must be preserved"
+}

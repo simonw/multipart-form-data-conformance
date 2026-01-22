@@ -1,0 +1,26 @@
+{
+  "id": "303-chrome-empty-file",
+  "name": "Chrome empty file upload",
+  "description": "How Chrome represents file input with no file selected",
+  "spec_references": [
+    "RFC 7578"
+  ],
+  "category": "browser-variations",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "file",
+        "filename": "",
+        "content_type": "application/octet-stream",
+        "body_text": "",
+        "body_size": 0
+      }
+    ]
+  },
+  "notes": "Chrome sends empty filename and application/octet-stream for empty file inputs"
+}

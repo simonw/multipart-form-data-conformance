@@ -1,0 +1,26 @@
+{
+  "id": "206-preamble-content",
+  "name": "Preamble before first boundary",
+  "description": "Content appears before the first boundary (preamble)",
+  "spec_references": [
+    "RFC 2046 Section 5.1.1"
+  ],
+  "category": "malformed",
+  "tags": [
+    "optional",
+    "parsing"
+  ],
+  "expected": {
+    "valid": true,
+    "parts": [
+      {
+        "name": "field",
+        "filename": null,
+        "content_type": null,
+        "body_text": "value",
+        "body_size": 5
+      }
+    ]
+  },
+  "notes": "RFC 2046: Content before first boundary is preamble and should be ignored"
+}

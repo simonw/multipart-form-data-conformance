@@ -1,0 +1,18 @@
+{
+  "id": "204-invalid-content-disposition",
+  "name": "Invalid Content-Disposition",
+  "description": "Content-Disposition header has invalid/unparseable syntax",
+  "spec_references": [
+    "RFC 7578 Section 4"
+  ],
+  "category": "malformed",
+  "tags": [
+    "required",
+    "parsing"
+  ],
+  "expected": {
+    "valid": false,
+    "error_type": "missing_name"
+  },
+  "notes": "Content-Disposition must have valid syntax with name parameter"
+}
